@@ -22,8 +22,8 @@ import javax.persistence.TemporalType;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)  // Una tabla propia para cada subclase
 @DiscriminatorColumn(name = "TIPO_USUARIO",
-        discriminatorType = DiscriminatorType.STRING,
-        length = 20)
+                     discriminatorType = DiscriminatorType.STRING,
+                     length = 20)
 public abstract class Usuario implements Serializable {
 
     @Id

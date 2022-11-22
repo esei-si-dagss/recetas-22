@@ -39,16 +39,18 @@ public abstract class Usuario implements Serializable {
     private String login;
     private String password;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaAlta;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date ultimoAcceso;
 
+	private Boolean activo = true;
+	
     public Usuario() {
         this.fechaAlta = Calendar.getInstance().getTime();
         this.ultimoAcceso = Calendar.getInstance().getTime();
+		this.activo = true;
     }
 
     public Usuario(TipoUsuario tipo) {
@@ -111,6 +113,22 @@ public abstract class Usuario implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    public void activar() {
+        this.activo = true;
+    }
+
+    public void desactivar() {
+        this.activo = false;
+    }
 
 	@Override
 	public int hashCode() {
